@@ -1,0 +1,13 @@
+<!doctype>
+<html>
+<head><title>Left Frame</title></head>
+<body bgcolor="pink">
+<form name="input_form">
+<p>enter state: <input size=“2” name=“state”></p>
+<input type="button" value=“convert”
+  onclick="javascript:  parent.right.output_form.state.value=
+   input_form.state.value.touppercase()">
+</form>
+
+</body>
+</html>

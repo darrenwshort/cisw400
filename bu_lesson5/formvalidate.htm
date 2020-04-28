@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <link rel="stylesheet" type="text/css" href="formvalidate.css">
+
+    <!-- internal JS code -->
+    <script>
+
+        var defaultTextColor = '#2D0441';  // alternate rep - rgb(45,4,65)
+        var errorTextColor = '#FF0000';    // alternate rep - rgb(255,0,0)
+		
+
+        function clearField(elmID) {
+            elmID.value = '';
+            return false;
+        }
+
+        function clearZipError() {
+			document.getElementById('zipError').innerHTML = "";
+        }
+
+		function clearEmailError() {
+			document.getElementById('emailError').innerHTML = "";	
+		}
+		
+        function showZipError() {
+			var z = document.getElementById('zipError');
+            z.style.color = errorTextColor;            
+            z.innerHTML = "* Please enter a valid zip code\n" + '<br>';
+			document.forms[0].zip.focus();
+			
+            
+        }
+        
+
+        function showEmailAddyError() {
+			var e = document.getElementById('emailError');
+            e.style.color = errorTextColor;
+            e.innerHTML = "* Please enter a valid email address\n" + '<br>';
+			document.forms[0].email.focus();
+        }
+
+        
+
+        function validateZip(z) {
+            if(z != null && z.value.match(/\b\d{5}\b/)) {
+                getLocation();
+				clearZipError();
+            } else {
+                showZipError();
+				document.forms[0].zip.focus();
+
+            }
+        }
+
+        function validateEmail(e) {
+            console.log("inside validate email!");
+            if(e != null && e.value.match(/^\w+@\w+\.{1}[A-Za-z]{2,3}$/)) {
+                clearEmailError();
+            } else {
+                showEmailAddyError();
+				document.forms[0].email.focus();
+            }
+        }
+
+        function validateForm(z, e) {
+            console.log("inside validateform!");
+            validateZip(z);
+            validateEmail(e);
+        }
+
+    </script>
+    
+</head>
+<body onLoad="javsacript:document.forms[0].zip.focus();">
+    <header>
+        <h1>Assignment 5: Registration Form</h1>
+    </header>
+    <div id="grid-wrapper">
+        <nav id="instruc-list">
+            <ol>
+                <li>Enter your zip code; the city and state fields will auto-populate.</li>
+                <li>Enter a valid email address.</li>
+                <li>Click the Submit button once, if your information looks correct.</li>
+            </ol>
+            <section>Thank You!</section>
+        </nav>
+
+        <!-- BLOCK OF SPACE FOR ERROR OUTPUT -->
+        <div id="zipError"></div>
+        <div id="emailError"></div>
+
+        <!-- REGISTRATION FORM -->
+        <form name="register" href="#">
+
+            <!-- ZIP INPUT FIELD -->
+            <label for="zip" id="zip-label">Zip:</label>            
+            <p id="zipID"><input id="zipInputElm" type="text" name="zip" size="6" maxlength="5" onblur="validateZip(this);">&nbsp;( ex: 94134 or 01001 - *MUST* be 5 digits)</p>
+
+            <!-- CITY INPUT FIELD-->
+            <label for="city" id="city-label">City:</label> 
+            <p id="cityID"><input id="cityInputElm" type="text" name="city" size="30" value='' disabled></p>
+
+            <!-- STATE INPUT FIELD -->
+            <label for="state" id="state-label">State:</label>
+            <p id="cityID"><input id="stateInputElm" type="text" name="state" size="8" maxlength="2" value='' disabled>&nbsp;</p>  
+
+            <!-- creating some space -->
+            <p>&nbsp;</p><p id="spaceID">&nbsp;</p>
+
+            <!-- EMAIL INPUT FIELD -->
+            <label for="email" id="email-label">Email:</label>
+            <p id="emailID"><input id="emailInputElm" type="email" name="email" size="35" value='yourname@youremail.com' onblur="validateEmail(this);"></p>
+
+            <!-- BUTTON FOR FORM SUBMITTAL -->
+            <p>&nbsp;</p><p><button onclick="validateForm(zipInputElm,emailInputElm);">Submit</button></p>
+        </form>
+    </div>
+
+    <!-- GOOGLE JS MAP APIs - USED TO GET CITY AND STATE BASED ON INPUT OF A ZIP CODE -->
+    <script language="javascript" src="https://maps.google.com/maps/api/js?&key=AIzaSyD1SAuVX3Ww32suQKfaN5Wyi8Z5dRiGGUA"></script>
+
+  	<!-- external JS code to retrieve city/state based on zip code -->
+    <script src="zipSearch.js"></script>
+	
+</body>
+</html>

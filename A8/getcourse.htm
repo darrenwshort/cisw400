@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Get Web Programming Course Requirements (CRC)</title>
+  
+<script>
+  function findCourse(str) {
+    if (str.length == 0) {
+      document.getElementById("course").innerHTML = "";
+      return;
+    } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("course").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "getcourse.php?c=" + str, true);
+      xmlhttp.send();
+    }
+  }
+</script>
+</head>
+  
+<body>
+<h2>CRC Web Programming Certificate Course Lookup:</h2>
+<p><b>Start typing the name of course, in the input field below: (ex: CISW 400)</b></p>
+<form>
+Course: <input type="text" onkeyup="findCourse(this.value)">
+</form>
+  <p>Suggestions:</p> 
+  <p><span id="course"></span></p>
+</body>
+</html>

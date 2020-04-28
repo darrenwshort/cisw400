@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CISW 400 jQuery XCr - Fade Effects</title>
+    <script src="jquery-3.5.0.js"></script>
+  </head>
+<body>
+  
+<h2><a id="dicelink" href="http://www.dice.com">dice.com for IT professionals</a></h2> 
+  
+  
+<script>
+  $("#dicelink").hover(function() {
+      $("#dicelink").fadeTo(200, 0.2);
+  });
+  
+  $("#dicelink").mouseout(function() {
+    $("#dicelink").fadeTo(200, 1.0);
+  })
+</script>
+</body>
+</html>

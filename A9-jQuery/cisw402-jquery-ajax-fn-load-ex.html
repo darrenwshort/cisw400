@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+  <head><title> Ajax Example </title></head>
+  <script src=“../jquery.js”></script>
+  
+  
+  <script>
+  $(document).ready(function() { 
+      $.ajax(“jquery-fade-hyperlinks.html”, {   
+        type: “get”,   
+        datatype: “html”,   
+        success: function(data) {   
+          $(‘#results1’).html(data);
+        },  
+        error: function(xhr, status, err) {
+          $(‘#results1’).html(“Error “ + status + “, “ + err);  }
+        });
+        $(‘#results2’).load(“data/blurb.html”);
+        });
+  </script>
+  </head>
+  <body>
+    <h1>Here is the Ajax we received via $.ajax:</h1>
+      <div id=“results1”></div>
+      <h1>Here is the Ajax we received via $.load:</h1>
+      <div id=“results2”></div>
+  </body>
+</html>

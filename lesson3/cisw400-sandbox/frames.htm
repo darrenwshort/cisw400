@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Frameset</title>
+    <script>
+        if(!document.frames) {
+            alert("browser does not support frames");
+        }
+    </script>
+</head>
+<body>
+<frameset cols="200, *">
+    <frame src="left.htm" name="left">
+    <frame src="right.htm" name="right">
+    <noframes>Sorry, your browser does not support frames.</noframes>
+</frameset>
+</body>
+</html>

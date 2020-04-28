@@ -1,0 +1,112 @@
+<!doctype>
+<html>
+<head>
+    <title>Browser Detection</title>
+</head>
+    
+<body id="main">    
+<script>
+
+// establish colors for browsers.
+var MSIE = {name:'Internet Explorer', backgroundclr:"blue", textclr:"white"};
+var Chrome = {name:'Chrome', backgroundclr:"green", textclr:'red'};
+var Firefox = {name:"Firefox", backgroundclr:"yellow", textclr:"black"};
+var Safari = {name:"Safari", backgroundclr:"gray", textclr:"blue"};
+var aColors = ["blue", "yellow"];
+
+// determine which browser.
+bAgent = navigator.userAgent;
+   
+var haschrome = /Chrome/.exec(bAgent);  // *TEST* check if 'Chrome' present for Mac/Safari
+var [_, bname, bversion] = /(\w+)\/([\d.]+)$/.exec(bAgent);
+    
+// determine which platform OS.
+var platform;
+if(platform = bAgent.match(/Windows/g)) {
+    ; // do nothing
+}
+else if (platform = bAgent.match(/Macintosh/g)) {
+    ; // do nothing
+}
+else { platform = "Other"; }
+    
+    
+// determine proper background and text colors.
+if(platform == "Windows")
+{
+    if( bAgent.match(/Trident/) ) {
+        document.body.style.backgroundColor = MSIE.backgroundclr;
+        document.body.style.color = MSIE.textclr;
+    }
+    else if(bname == "Chrome") {
+        document.body.style.backgroundColor = Chrome.backgroundclr;
+        document.body.style.color = Chrome.textclr;
+    }
+    else if(bname == "Firefox") {
+        document.body.style.backgroundColor = Firefox.backgroundclr;
+        document.body.style.color = Firefox.textclr;
+    }
+    else { // black/white: default for unknown browser
+        bname = bname.replace("Edg", "Edge"); // missing 'e', one-off with Edge on some platforms.
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+    }
+}
+    
+else if (platform == "Macintosh")
+{
+    if(bname == "Safari") {
+        if(bAgent.match(/Chrome/)) {
+            bname = "Chrome";
+            changeCSS(Chrome);
+        }
+        else {
+            changeCSS(Safari);
+        }
+    }
+    else if(bname == "Firefox") {
+        changeCSS(Firefox);
+    }
+    else { // black/white: default for unknown browser
+        bname = bname.replace("Edg", "Edge"); // missing 'e', one-off with Edge on some platforms.
+        changeCSS(MSIE);
+    }
+}
+else { ; } 
+    
+    
+/* TEST OUTPUT 
+if(haschrome) {
+    document.write("has chrome?: " + haschrome + '<br>');
+}
+else {
+    document.write("has chrome?: NOPE!" + '<br><br>');
+}
+*/
+    
+/******* JS FUNCTIONS ************/ 
+function changeCSS(b) {
+    console.log(b + " is: " + typeof(b)); 
+    if(document.body.style.backgroundColor = b.backgroundclr) {
+        console.log("nice, background color should have changed");// obj null
+    }
+    
+    if(document.body.style.color = b.textclr) {
+        console.log("nice, text color should have changed");
+    } // obj null
+    //console.log(main.style.backgroundColor);
+    //console.log(main.style.color);
+    //return b;
+}
+/******** END JS FUNCTIONS ********/
+
+/* TEST OUTPUT */
+document.write("Your browser is " + bAgent + "<br><br>");    
+document.write("platform OS: " + platform + '<br>');
+document.write("browser name: " + bname + '<br>');
+document.write("browser version: " + bversion + '<br>');
+
+    
+</script>
+</body>
+</html>

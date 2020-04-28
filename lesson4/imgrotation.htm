@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Hear No, See No, Speak No Evil...</title>
+        <link rel="stylesheet" type="text/css" href="a4styles.css">
+<!-- ******************************************* -->
+<!-- Darren Short @ CRC CISW400 Spring 2020      -->
+<!-- Assignment #4 - Image Rotation              -->
+<!-- ******************************************* -->
+        
+        <!---------- JAVASCRIPT ---------->
+        <script>
+            
+            // CREATE ARRAY FOR IMAGE FILENAMES
+            var imgArr = new Array();
+            imgArr[0] = 'hear-no-evil.png';
+            imgArr[1] = 'see-no-evil.png';
+            imgArr[2] = 'speak-no-evil.png';
+            
+            // CREATE ARRAY FOR HREF REDIRECT UPON CLICKING ON IMAGES
+            var imgUrl = new Array();
+            imgUrl[0] = 'https://www.spotify.com/us/'; // something to hear/listen to
+            imgUrl[1] = 'https://www.cntraveler.com/galleries/2015-11-27/the-50-most-beautiful-places-in-the-world'; // things to see
+            imgUrl[2] = 'https://www.ted.com/talks'; // speakers
+            
+            //------------------------- FUNCTIONS ----------------------------/
+            /******************************************************************
+            * rotate() fn randomly rotates image for img 
+            * element (id: imgID) every 3 seconds.
+            *
+            * input: n/a
+            * return: n/a
+            ******************************************************************/
+            
+            function rotate()
+            {
+                var num = Math.floor(Math.random() * 3);  // <---- EXTRA CREDIT:  random # generator
+                var file = 'images/' + imgArr[num];
+                document.getElementById("imgID").src = file;
+                document.getElementById("imgHref").href = imgUrl[num];
+                setTimeout("rotate()", 3000); // delay 3 seconds
+            }
+            //---------------------- END FUNCTIONS --------------------------/
+            
+        </script>
+        
+    </head>
+    
+<body onload="rotate()">
+  <h2>Hear no evil, See no evil, Speak no evil</h2>
+  <h3>(Click the rotating image to *hear* something, *see* something or listen to a *Speak*-er)</h3>
+  <!-- HREF REDIRECT (NEW WINDOW OPENED) WHEN CURRENTLY, DISPLAYED IMAGE, CLICKED ON -->
+  <a href="#" target="_blank" id="imgHref"><img src='images/hear-no-evil.png' id="imgID"></a>
+</body>
+</html>

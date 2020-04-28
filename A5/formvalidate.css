@@ -1,0 +1,76 @@
+
+* {
+    margin: 0;
+    padding: 5px; /* keep */
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(222, 219, 233);
+    align-items: center;
+    color: rgb(70, 8, 100);
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+
+#grid-wrapper {
+    display: block;
+    margin: auto;
+    width: 700px;
+    /* text-align: center; */
+}
+
+#instruct-list {
+    color: gray;
+}
+
+form {
+    display: grid;
+    grid-row-gap: 10px 0px;
+    grid-template-columns: 100px 1fr;    /* # OF COLS IN GRID LAYOUT */
+    grid-template-rows: repeat(6, 1fr);  /* # OF ROWS IN GRID LAYOUT */
+    border: 1px solid rgb(45, 4, 65);
+    font-family: inherit;
+    align-items: center;
+    border-radius: 20px;
+    vertical-align: middle;
+}
+
+input {
+    border: 1px solid rgb(45, 4, 65);
+    font-size: 14px;
+    font-family: inherit;
+    padding: 5px;
+    text-emphasis-color: rgb(222, 219, 233);
+    /* text-align: left; */
+}
+
+#stateInputElm, #cityInputElm {
+    background: rgb(194, 191, 206);
+}
+
+button {
+    border: 1px solid rgb(45, 4, 65);
+    font-size: 1em;
+    grid-column-start: 2;
+    margin-top: 10px;
+    padding: 10px;
+    color: inherit;
+}
+
+label {
+    text-align: right;
+    vertical-align: middle;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#spaceID {
+    border-top: 1px solid black;
+    vertical-align: middle;
+    padding: 0px;
+
+}

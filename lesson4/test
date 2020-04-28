@@ -1,0 +1,5 @@
+INSERT INTO vendors (companyName, contactFirstName, contactLastName, phone, email, city, state, zip)
+		VALUES ('Brians Company', 'x', 'x', 'x', 'email', 'Somewhere City', 'CA', 99999);
+        
+        
+INSERT INTO vendors(companyName) VALUES(?);

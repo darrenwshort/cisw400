@@ -1,0 +1,74 @@
+
+#maintable {
+    border-collapse: collapse;
+    background-image: url('crc-hawks.jpg');
+    max-height: 460px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+#maintable tr {
+    height: 85px;
+    width: 100px;
+}
+
+#minitable {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#minitable  tr {
+    height: 50%;
+    border: 0;
+}
+
+#minitable td {
+    border: 0px;
+}
+
+th, tr, td {
+    border: 2px solid #000;
+}
+
+tr#th-row {
+    height: 35px;
+}
+
+th {
+    text-align: center;
+    background-color: rgb(255, 145, 0);
+    width: 100px;
+}
+
+td {
+    text-align: right;
+    vertical-align: text-top;
+    color: rgb(0, 225, 255);
+    font-size: 16px;
+    font-weight: 800;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 45px;
+}
+
+td.msg {
+    color: rgba(26, 134, 26, 0.692);
+    text-shadow: none;
+    text-align: center;
+    font-weight: normal;
+}
+
+#calcaption {
+    padding: 15px 0px;
+    color: rgb(0, 225, 255);
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+a {
+    color: rgba(26, 134, 26, 0.692);
+}

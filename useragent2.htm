@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <title>Browser Detection</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+    
+<body id="main">
+
+<!-- JAVASCRIPT IN BODY -->
+<script>
+// establish colors for browsers.
+var MSIE = {name:"Internet Explorer", backgroundclr:"blue", textclr:"white"};
+var Chrome = {name:"Chrome", backgroundclr:"green", textclr:"red"};
+var Firefox = {name:"Firefox", backgroundclr:"yellow", textclr:"black"};
+var Safari = {name:"Safari", backgroundclr:"gray", textclr:"blue"};
+
+
+// determine which browser.
+bAgent = navigator.userAgent;
+var [_, bname, bversion] = /(\w+)\/([\d.]+)$/.exec(bAgent);
+    
+// determine which platform OS.
+var platform;
+if(platform = bAgent.match(/Windows/g)) {
+    ; // do nothing
+}
+else if (platform = bAgent.match(/Macintosh/g)) {
+    ; // do nothing
+}
+else { platform = "Other"; }
+    
+    
+// determine proper background and text colors.
+if(platform == "Windows")
+{
+    if( bAgent.match(/Trident/) ) {
+        document.body.style.backgroundColor = MSIE.backgroundclr;
+        document.body.style.color = MSIE.textclr;
+    }
+    else if(bname == "Chrome") {
+        document.body.style.backgroundColor = Chrome.backgroundclr;
+        document.body.style.color = Chrome.textclr;
+    }
+    else if(bname == "Firefox") {
+        document.body.style.backgroundColor = Firefox.backgroundclr;
+        document.body.style.color = Firefox.textclr;
+    }
+    else { // black/white: default for unknown browser
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+    }
+}
+    
+else if (platform == "Macintosh")
+{
+    if(bname == "Safari") {
+        if(bAgent.match(/Chrome/)) {
+            bname = "Chrome";
+            document.body.style.backgroundColor = Chrome.backgroundclr;
+            document.body.style.color = Chrome.textclr;
+        }
+        else {
+            document.body.style.backgroundColor = Safari.backgroundclr;
+            document.body.style.color = Safari.textclr;
+        }
+    }
+    else if(bname == "Firefox") {
+        document.body.style.backgroundColor = Firefox.backgroundclr;
+        document.body.style.color = Firefox.textclr;    }
+    else { // black/white: default for unknown browser
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+    }
+}
+else { ; } 
+    
+    
+document.write('<h1>Assignment 3: Browser Detection</h1>');
+document.write('<p id="whatbrowser">This page is being viewed by ' + bname + ' ' + parseInt(bversion) + " on " + platform + '</p>');
+document.write('<header id="download">BROWSER DOWNLOADS</header>');
+document.write('<nav>');
+document.write('<ul>');
+document.write('<li><a target="_blank" href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads">Microsoft Internet Explorer</a> - Microsoft IE and Edge</li>');
+document.write('<li><a target="_blank" href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> - Mozilla Firefox </li>');
+document.write('<li><a target="_blank" href="https://www.google.com/chrome/">Chrome</a> - Google Chrome </li>');
+document.write('</ul>')
+document.write('</nav>');
+    
+</script>
+
+
+</body>
+</html>

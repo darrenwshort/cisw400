@@ -1,0 +1,23 @@
+h1 {
+    padding-top:20px;
+    padding-bottom:20x;
+}
+
+h3 {
+    text-align:left;
+    padding:20px;
+}
+
+h2 {
+    text-align:left;
+    padding:20px;
+}
+
+header#download {
+    border-top:5px solid gray;
+    padding-top:30px;
+}
+
+p#whatbrowser {
+    font-size:1em;
+}

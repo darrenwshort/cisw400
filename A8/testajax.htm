@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+<body style="background-color: #CCC; text-align: center;" onload="getServerTime()">
+  <h1>Ajax Demo</h1>
+  <h2>Getting the server time without page refresh</h2>
+  <form>
+    <input type="button" value="Get Server Time" onclick="getServerTime()" />
+  </form>
+  <div id="showtime" class="displaybox"></div>
+
+</body>
+<script language="Javascript" type="text/javascript">
+  function getXMLHTTPRequest() {
+    try {
+      var req = new XMLHttpRequest();
+    } catch(err1) {
+      try {
+        req = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch(err2) {
+        try {
+          req = new ActiveXObject("microsoft.XMLHTTP");
+        } catch(err3) {
+          req = false;
+        }
+      }
+    }
+    return req;
+  }
+
+
+  var http = getXMLHTTPRequest();
+
+  function getServerTime() {
+    var myurl = 'telltimeXML.php';
+    myRand = parseInt(Math.random()*999999999999999);
+    var modurl = myurl+"?rand="+myRand;
+    http.open("GET", modurl, true);
+    http.onreadystatechange = useHttpResponse;
+    http.send(null);
+  }
+
+  function useHttpResponse() {
+    if (http.readyState == 4) {
+      var timeValue = http.responseXML.getElementsByTagName("timenow")[0];
+      document.getElementById('showtime').innerHTML = timeValue.childNodes[0].nodeValue;
+    } else {
+      document.getElementById('showtime').innerHTML = '<img src="anim.gif">';
+    }
+  }
+
+</script>
+</html>

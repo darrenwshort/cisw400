@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CISW400 Rollover Example</title>
+
+<!-- ******************************************* -->
+<!-- Darren Short @ CRC CISW400 Spring 2020      -->
+<!-- Assignment #2 - Rollover                    -->
+<!-- Assignment #3b - Revision, add feature test -->
+<!-- ******************************************* -->
+
+<!-- JAVASCRIPT -->
+<script>
+/****************************************************
+ *  if 'document.images' feature available, create
+ *  variables for Image objects and assign source
+ *  image files, respectively.
+ ***************************************************/
+if(document.images) { // <-----------  REVISION:  TEST FOR FEATURE (ASSIGNMENT #3B)
+    
+    var linkedin1 = new Image();
+    var linkedin2 = new Image();
+    var linkedin_gray = new Image();
+    var ziprecruiter1 = new Image();
+    var ziprecruiter2 = new Image();
+    var ziprecruiter_gray = new Image();
+    var dice1 = new Image();
+    var dice2 = new Image();
+    var dice_gray = new Image();
+    var crc_logo = new Image();
+    var crc_logo_hlight = new Image();
+
+
+    //specify image for src property
+    linkedin1.src = 'images/286x150-linkedin-logo2.png';
+    linkedin2.src = 'images/537x150-linkedin-blurb-img-noborder.png';
+    linkedin_gray.src = 'images/286x150-linkedin-logo2-grayscale.png';
+    ziprecruiter1.src = 'images/300x157-ziprecruiter-logo-img.png';
+    ziprecruiter2.src = 'images/623x157-ziprecruiter-blurb-img-noborder.png';
+    ziprecruiter_gray.src = 'images/300x157-ziprecruiter-logo-img-grayscale.png';
+    dice1.src = 'images/157x157-dice-logo-img.png';
+    dice2.src = 'images/494x157-dice-blurb-img-noborder.png';
+    dice_gray.src = 'images/157x157-dice-logo-img-grayscale.png';
+    crc_logo.src = 'images/consumnes-river-college-logo3.png';
+    crc_logo_hlight.src = 'images/consumnes-river-college-logo-highlight-border3.png';
+}
+</script>
+<noscript>Sorry, your browser doesn't support Javascript.  Please enable it or download a capable browser.</noscript>
+</head>
+
+<body>
+
+  <!-- linkedin.com -->
+  <a target="_blank" href="http://www.linkedin.com"
+     onMouseOver="document.linkedin_btn.src=linkedin2.src;
+                  document.zip_btn.src=ziprecruiter_gray.src;
+                  document.dice_btn.src=dice_gray.src;"
+     onMouseOut="document.linkedin_btn.src=linkedin1.src;
+                 document.zip_btn.src=ziprecruiter1.src;
+                 document.dice_btn.src=dice1.src;">
+       <img name="linkedin_btn" border="1" src="images/286x150-linkedin-logo2.png">
+  </a>
+  <br><br><br>
+
+
+  <!-- ziprecruiter.com -->
+  <a target="_blank" href="http://www.ziprecruiter.com"
+     onMouseOver="document.zip_btn.src=ziprecruiter2.src;
+                  document.linkedin_btn.src=linkedin_gray.src;
+                  document.dice_btn.src=dice_gray.src;"
+     onMouseOut="document.zip_btn.src=ziprecruiter1.src;
+                 document.linkedin_btn.src=linkedin1.src;
+                 document.dice_btn.src=dice1.src;">
+       <img name="zip_btn" border="1" src="images/300x157-ziprecruiter-logo-img.png">
+  </a>
+  <br><br><br>
+
+
+  <!-- dice.com -->
+  <a target="_blank" href="http://www.dice.com"
+     onMouseOver="document.dice_btn.src=dice2.src;
+                  document.linkedin_btn.src=linkedin_gray.src;
+                  document.zip_btn.src=ziprecruiter_gray.src;"
+     onMouseOut="document.dice_btn.src=dice1.src;
+                 document.linkedin_btn.src=linkedin1.src;
+                 document.zip_btn.src=ziprecruiter1.src;">
+       <img name="dice_btn" border="1" src="images/157x157-dice-logo-img.png">
+  </a>
+  <br><br><br><br>
+
+
+  <!-- crc.losrios.edu -->
+  <center>
+    <a target="_blank" href="https://crc.losrios.edu"
+       onMouseOver="document.ftrlogo.src=crc_logo_hlight.src;"
+       onMouseOut="document.ftrlogo.src=crc_logo.src;">
+      <img name="ftrlogo" border="1" src="images/consumnes-river-college-logo3.png">
+    </a>
+  </center>
+
+</body>
+</html>

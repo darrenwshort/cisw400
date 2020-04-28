@@ -1,0 +1,37 @@
+CERTIFICATE OF ACHIEVEMENT
+CIS - Web Programming Certificate
+CODE #1500
+
+This certificate prepares students to design, develop, support, and maintain
+corporate level Web pages and full Web sites at the level of the Intranet
+or Internet. Additionally, this certificate will prepare students to design
+and develop database management applications to support Web-based
+commercial objectives.
+
+CERTIFICATE REQUIREMENTS ...................................................... UNITS
+BUS 100 English for the Professional (3) ........................................ 3
+CISP 300 Algorithm Design/Problem Solving ....................................... 3
+CISA 320 Introduction to Database Management .................................... 1
+CISC 308 Exploring Computer Environments and the Internet (1) ................... 1
+or CISC 323 Linux Operating System (1)
+CISC 324 Intermediate Linux Operating System .....................................1
+CISW 300 Web Publishing ......................................................... 3
+CISW 410 Middleware Web Scripting ............................................... 4
+CISP 360 Introduction to Structured Programming ..................................4
+CISP 350 Database Programming ................................................... 3
+CISW 400 Client-side Web Scripting .............................................. 4
+
+A minimum of 5 units from the following:
+
+CISW 440 XML: Introduction to Extensible Markup Language (2)
+CISW 402 Intermediate JavaScript (2)
+CISW 310 Advanced Web Publishing (4)
+CISA 321 Intermediate Database Management (1)
+CISW 304 Cascading Style Sheets (2)
+CISW 308 Mobile Web Development (2)
+
+Total Units:................................................................... 32
+
+1 Unix Operating System
+2 C or C#
+3 Suggested Electives: CISC 310, CISC 305, CISW 321, CISC 308, CISW 380.1

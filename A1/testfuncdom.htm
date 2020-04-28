@@ -1,0 +1,32 @@
+<!doctype>
+<html>
+<head><title>Test Function with DOM access</title>
+
+</head>
+<body id="main">
+This is a simple page.
+    
+<script>
+//var Chrome = {"backgroundclr":"green","textclr":"yellow"};
+  var Chrome = ["green","yellow"];
+    
+console.log("bgcolor = " +Chrome[0]);
+console.log("tcolor: " + Chrome[1]);
+    
+function changeColor(a) {
+    console.log(a[0]);
+    console.log(a[1]);
+    document.body.style.backgroundColor = a[0];
+    document.body.style.color = a[1];
+    return a;
+}
+    
+//document.body.style.backgroundColor = Chrome[0];
+//document.body.style.color = Chrome[1];
+changeColor(Chrome);
+    
+</script>
+    
+    
+</body>
+<html>

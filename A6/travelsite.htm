@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CISW 400 A6 - Travel Page (dynamic HTML)</title>
+<link rel="stylesheet" type="text/css" href="travelsite.css">
+</head>
+
+<body onLoad="changePictures();">
+  
+  <p id="heading">Travel Net</p>
+  <hr>
+  
+  <div id="menu">
+    <p><label for="travelSelect" id="travelSelectLabel">Select Destination:</label></p>
+    
+    <select id="travelSelect" size="3" onChange="changePictures();">
+      <option value="keylargo" selected>Key Largo, USA</option>
+      <option value="boracay">Boracay, Philippines</option>
+      <option value="switzerland">Switzerland</option>  
+    </select>
+  </div>
+  
+  <div id="thumbnails">
+    <div id="thumb1"><img id="img1" src="images/keylargo1.jpg" onMouseOver="showBigPic(this);"></div>
+    <div id="thumb2"><img id="img2" src="images/keylargo2.jpg" onMouseOver="showBigPic(this);"></div>
+    <div id="thumb3"><img id="img3" src="images/keylargo3.jpg" onMouseOver="showBigPic(this);"></div>
+    <div id="thumb4"><img id="img4" src="images/keylargo4.jpg" onMouseOver="showBigPic(this);"></div>
+    <div id="thumb5"><img id="img5" src="images/keylargo5.jpg" onMouseOver="showBigPic(this);"></div>
+    <div id="thumb6"><img id="img6" src="images/keylargo6.jpg" onMouseOver="showBigPic(this);"></div>
+  </div>
+  
+  <div id="mainPic">
+    <img id="imgMain" src="images/keylargo1.jpg">
+  </div>
+
+<script type="text/javascript" src="travelsite.js"></script>
+</body>
+</html>

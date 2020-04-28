@@ -1,0 +1,32 @@
+
+// WORKING CODE... 
+
+// Chrome associative array object created with predetermined values.
+var Chrome = {name:"Chrome", backgroundclr:"green", textclr:"red"};
+
+// "main" is the id value for <body> tag.  The two lines of code
+// below work just fine within <script> tags, in turn changing the color of the background
+// and the text as expected
+//
+main.style.backgroundColor = Chrome.backgroundclr;
+main.style.color = Chrome.textclr;
+
+
+/*****************************************************************************/
+
+
+
+// NON-WORKING CODE...
+
+// "main" is the id value for <body> tag.  Within the function, JS says main is null?
+// Or, maybe b is null.  Do I need to convert b from a string to an object of some type?
+// "b" which is local to the function has a value of "Chrome".
+//
+function changeCSS(b) {
+    main.style.backgroundColor = b.backgroundclr; 
+    main.style.color = b.textclr;
+}
+
+
+// call to function within tags
+changeCSS("Chrome");

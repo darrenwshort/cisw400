@@ -1,0 +1,86 @@
+* {
+  margin: 3px;
+  padding: 0px;
+  font-family: Verdana, 'Times New Roman', 'Courier New';
+}
+
+
+#wrapper {
+  height: 500px;
+  margin: 10px;
+}
+
+.mySettings {
+  text-align: left;
+  min-height: 80px;
+  max-height: 100px;
+  padding-top: 40px;
+  margin-left: 20px;
+  color: cyan;
+  font-size: 20px;
+}
+
+#main {
+  text-align: center;
+  height: 700px;
+  margin-bottom: 5px;
+}
+
+.bigFontHeading {
+  color: deepskyblue;
+  margin-top: 0px;
+  font-size: 110px;
+  width: 99%;
+  min-height: 200px;
+}
+
+#displaySkin {
+  margin-left: 550px;
+  padding-top: 40px;
+  width: 250px;
+  height: 80px;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  background-color: #ff0;
+  vertical-align: middle;
+  font-size: 28px;
+}
+
+#skinSelect {
+  display: grid;
+  grid-template-columns: 130px 170px 375px;
+  grid-template-rows: 35px 25px;
+  grid-column-gap: 0px;
+  grid-row-gap: 3px;
+  max-height: 150px;
+  padding-top: 40px;
+  margin-left: 50px;
+  color: cyan;
+  text-align: right;
+}
+
+input #changeSkinLabel {
+  display: inline;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+#changeSkinElm {
+  color: fuchsia;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+#submitSkinElm {
+  width: auto;
+}
+
+#plabel {
+  display: inline-block;
+}
+
+.btn {
+  display: block;
+  text-align: right;
+}

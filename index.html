@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+   <head>
+      <title>CISW 400 Spring 2020 - Darren Short's Assignments</title>
+       
+      <!-- css -->
+      <link rel="stylesheet" type="text/css" href="cisw400main.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   </head>
+
+   <body>
+     <!-- jQuery XCr -->
+     <script>
+       $("document").ready(function(){
+         
+          $("a").hover(function() {
+              $(this).fadeTo(400, 0.1);
+          });
+
+          $("a").mouseout(function() {
+              $(this).fadeTo("slow", 1.0);
+          });
+       });
+     </script>
+     
+     <h1 class="main">Darren Short @ CRC : Class Assignments</h1>
+     <h3>CISW 400 (Javascript) - Spring 2020 - Fishman</h3>
+
+     <h4 class="assign-list-hdr">ASSIGNMENTS:</h4>
+     <ol type="1">
+       <li>Assignment #1 - <a href="#">Date Stamp</a></li>
+       <li>Assignment #2 - <a target="_blank" href="A2/rollover.htm">Rollovers</a></li>
+       <li>Assignment #3 - <a target="_blank" href="3a/useragent.htm">Browser Detection</a></li>
+       <li>Assignment #4 - <a target="_blank" href="A4/imgrotation.htm">Image Rotation</a></li>
+       <li>Assignment #5 - <a target="_blank" href="a5/formvalidate.htm">Registration Form (Form Validation)</a></li>
+       <li>Week 6 - Midterm Exam (Complete!)</li>
+       <li>Assignment #6 - <a target="_blank" href="A6/travelsite.htm">Travel Site (DHTML)</a></li>
+       <li>Assignment #7 - <a target="_blank" href="A7/skins-cisw400-a7-w1765868.htm">Skins</a></li>
+       <li>Assignment #8 - <a target="_blank" href="A8/getcourse.htm">AJAX XCR (Suggestions)</a></li>
+       <li>Week 10 - Quiz (4/3/20 - Complete!)</li>
+       <li>Assignment #9 - jQuery XCr Fade Effects (links on this page)</li>
+     </ol>
+
+     <!-- display date of page when last modified -->
+     <div id="lastmoddate"> 
+       Last Modified:&nbsp;&nbsp;
+       <script>document.write(document.lastModified);</script>
+     </div>
+
+       
+     <!-- randomly generate background & font colors, each page reload -->
+     <script>
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+     </script>
+       
+     
+   </body>
+</html>

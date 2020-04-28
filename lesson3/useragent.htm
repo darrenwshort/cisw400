@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <title>Browser Detection</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+        
+<!-- ************************************** -->
+<!-- Darren Short @ CRC CISW400 Spring 2020 -->
+<!-- Assignment #3a - Browser Detection     -->
+<!-- ************************************** -->
+
+</head>
+    
+<body id="main">
+
+<!-- JAVASCRIPT IN BODY -->
+<script>
+    
+//------------------------------ FUNCTIONS ----------------------------------
+    
+/*******************************************************
+ * for fun!  this func dynamically generate 
+ * background & text color for "other" categorized
+ * browser.
+ *
+ * function name: colorGen()
+ * input: n/a
+ * returns: generated color - clr (format ex: #FFFFFF)
+ ******************************************************/
+function colorGen() {
+    var clr ='#';
+    var arr = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+    for(i=0; i<6; i++) {
+        num = Math.floor(Math.random() * 16); // generate rand # between 0-15
+        clr += arr[num].toString();
+    }
+    return clr;
+}
+
+/***********************************************************
+ * this func changes the background & text colors of the
+ * webpage based on which browser currently used.
+ *
+ * function name: changeColors(object)
+ * input parameter: object representing pre-defined colors
+ *                  based on browser type used.
+ * return: n/a
+ **********************************************************/
+function changeColors(o) {
+    document.body.style.backgroundColor = o.backgroundclr;
+    document.body.style.color = o.textclr;
+}
+    
+//----------------------------- END FUNCTIONS -------------------------------
+    
+    
+// establish colors for browsers.
+var MSIE = {name:"Internet Explorer", backgroundclr:"blue", textclr:"white"};
+var Chrome = {name:"Chrome", backgroundclr:"green", textclr:"red"};
+var Firefox = {name:"Firefox", backgroundclr:"yellow", textclr:"black"};
+var Safari = {name:"Safari", backgroundclr:"gray", textclr:"blue"};
+
+// determine which browser.
+bAgent = navigator.userAgent;
+var [_, bname, bversion] = /(\w+)\/([\d.]+)$/.exec(bAgent);
+    
+// determine which platform OS.
+var platform;
+if(platform = bAgent.match(/Windows/g)) {
+    ; // do nothing
+}
+else if (platform = bAgent.match(/Macintosh/g)) {
+    ; // do nothing
+}
+else {
+    platform = "Other";
+}
+    
+    
+// TEST ON WINDOWS PLATFORM
+if(platform == "Windows")
+{
+    if( bAgent.match(/Trident/i) ) {
+       changeColors(MSIE);
+    }
+    else if(bname.match(/Chrome/i)) {
+       changeColors(Chrome);
+    }
+    else if(bname.match(/Firefox/i)) {
+        changeColors(Firefox);
+    }
+    else { // "other" browsers.  background & text color generated dynamically.
+        bname = bname.replace("Edg", "Edge"); // append missing 'e', one-off with Edge on some platforms.
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+    }
+}
+    
+// TEST ON MAC PLATFORM
+else if (platform == "Macintosh")
+{
+    if(bname.match(/Safari/i)) {
+        if(bAgent.match(/Chrome/i)) {
+            bname = "Chrome";
+            changeColors(Chrome);
+        }
+        else {
+            changeColors(Safari);
+        }
+    }
+    else if(bname.match(/Firefox/i)) {
+        changeColors(Firefox);
+    }
+    else { // "other" browsers.  background & text color generated dynamically.
+        bname = bname.replace("Edg", "Edge"); // append missing 'e', one-off with Edge on some platforms.
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+    }
+}
+    
+// TEST ON LINUX PLATFORM
+else if(bAgent.match(/linux/i)) {
+    platform = "Linux";
+    
+    if(bname.match(/Firefox/i)) {
+        changeColors(Firefox);
+    }
+    else if(bAgent.match(/OPR/i)) { // Opera browser
+        var [_, bname, bversion] = /(OPR)\/([\d.]+)/.exec(bAgent);
+        bname = bname.replace("OPR","Opera");
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+    }
+    else if((bAgent.match(/Chrome/i) || bAgent.match(/Chromium/i)) && !bAgent.match(/OPR/i))  {
+        var [_, bname, bversion] = /(Chrome|Chromium)\/([\d.]+)/.exec(bAgent);
+        changeColors(Chrome);
+    }
+    else {
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+    }
+}
+    
+// TEST ANY "OTHER" NON-WIN/MAC/LINUX PLATFORMS.
+else {
+    platform = "Other";
+    
+    if(bname.match(/Chrome/i) || bname.match(/Chromium/i)) {
+       changeColors(Chrome);
+    }
+    else if(bname.match(/Firefox/i)) {
+        changeColors(Firefox);
+    }
+    else if(bAgent.match(/Trident/)) {
+       changeColors(MSIE);
+    }
+    else {
+        bname = bname.replace("Edg", "Edge"); // append missing 'e', if Edge browser found.
+        document.body.style.backgroundColor = colorGen();
+        document.body.style.color = colorGen();
+    }
+} 
+    
+    
+// write page content.
+document.write('<h1>Assignment 3: Browser Detection</h1>');
+document.write('<p id="whatbrowser">This page is being viewed by ' + bname + ' ' + parseInt(bversion) + " on " + platform + ' platform.</p>');
+document.write('<header id="download">BROWSER DOWNLOADS</header>');
+document.write('<nav>');
+document.write('<ul>');
+document.write('<li><a target="_blank" href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads">Microsoft Internet Explorer</a> - Microsoft IE and Edge</li>');
+document.write('<li><a target="_blank" href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> - Mozilla Firefox </li>');
+document.write('<li><a target="_blank" href="https://www.google.com/chrome/">Chrome</a> - Google Chrome </li>');
+document.write('</ul>')
+document.write('</nav>');
+    
+</script>
+</body>
+</html>

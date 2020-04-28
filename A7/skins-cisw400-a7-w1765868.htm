@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CISW 400 - Assignment 7 (Skins)</title>
+    <link rel="stylesheet" type="text/css" href="skins-styles.css">
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+      //---------------------------------------------------------------------------
+      function setCookie(skin) {
+        document.cookie = "skin=" + skin + ";expires=Fri, 3 Jun 2020 23:50:59 GMT;";
+      } // end setCookie(skin)
+
+
+      //---------------------------------------------------------------------------
+      function checkSkinValue() {
+
+        var skin = document.getElementById('changeSkinElm').value;
+        skin = skin.toLowerCase();
+
+        if (skin != "earth" && skin != "space" && skin != "blackhole") {
+          alert('Please enter a valid skin value.  Thank You.');
+          document.getElementById('changeSkinElm').value = "";  // clear bad value
+          document.getElementById('changeSkinElm').focus();
+        }
+        else { changeSkin(skin); }
+      } // end checkSkinValue()
+
+      //---------------------------------------------------------------------------
+      function changeSkin(skin) {
+
+        var backg = '';
+        if( skin == "blackhole") { backg = 'blackhole.jpg'; }
+        else if (skin == "earth") { backg = 'earthfromspace.jpg'; }
+        else if (skin == "space") { backg = 'space.jpg'; }
+
+        document.body.style.backgroundImage = "url('" + backg + "')";
+        document.getElementById('displaySkin').innerHTML = 'Skin: ' + skin; 
+
+        setCookie(skin);
+      } // end changeSkin(skin)
+
+      //---------------------------------------------------------------------------
+      function checkCookie() {
+
+        var skin = '';
+        if(document.cookie != "" && document.cookie.match(/skin/)) {
+          var cookies = document.cookie.split(';');
+          for(var key in cookies){
+            var ck = cookies[key];
+            if(ck.match(/skin/)) {
+              var cookie = cookies[key].split('=');   
+              if(cookie[1] != null) { skin = cookie[1]; changeSkin(skin);}
+            }
+          }
+        }else{
+          changeSkin('space'); // set a default for no initial cookie
+        }
+      } // end checkCookie()
+
+      //---------------------------------------------------------------------------
+      function checkEnter() {
+        if(window.event.keyCode == 13) {
+          checkSkinValue();
+        }
+      }
+      //------------------------------ END FNs ------------------------------//
+    </script>
+  </head>
+  
+  
+  <!-- MAIN SECTION -->
+  <body id="b" onload="javascript: checkCookie();">
+  <div id="wrapper">
+  <div class="mySettings">[ My Settings ]</div>
+  <hr />
+  <div id="main">
+    <div class="bigFontHeading">
+      <p>User Preferences</p>
+    </div>
+    <div id="displaySkin" name="displaySkin"><p id="displaySkinPElm"></p></div>
+    <br />
+    <div id="skinSelect">
+      <label for="changeSkinElm" id="changeSkinLabel">Change Skin:</label>
+      <input type="text" id="changeSkinElm" onKeyDown="javascript: checkEnter();">
+      <span id="skinTypes">(Styles include: space, earth, OR blackhole)</span>
+
+      <div id="btn">
+        <button onclick="javascript: checkSkinValue();"> Save </button>
+      </div>
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+    </div>
+  </div>
+  </div>
+  </body>
+
+</html>
